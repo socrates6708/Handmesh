@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
     # dir prepare
     args.work_dir = osp.dirname(osp.realpath(__file__))
-    data_fp = osp.join(args.work_dir, '../data', args.dataset)
+    data_fp = osp.join('/media/public_dataset2', args.dataset)
     args.out_dir = osp.join(args.work_dir, 'out', args.dataset, args.exp_name)
     args.checkpoints_dir = osp.join(args.out_dir, 'checkpoints')
     if args.phase in ['eval', 'demo']:

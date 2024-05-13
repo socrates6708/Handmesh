@@ -144,11 +144,11 @@ def load_db_annotation(base_path, writer=None, set_name=None):
         if writer is not None:
             writer.print_str('Loading FreiHAND training set index ...')
         t = time.time()
-        k_path = os.path.join(base_path, '%s_K.json' % 'training')
+        k_path = os.path.join('/media/public_dataset2/FreiHAND/training_K.json')
 
         # assumed paths to data containers
-        mano_path = os.path.join(base_path, '%s_mano.json' % 'training')
-        xyz_path = os.path.join(base_path, '%s_xyz.json' % 'training')
+        mano_path = os.path.join("/media/public_dataset2/FreiHAND/training_mano.json")
+        xyz_path = os.path.join("/media/public_dataset2/FreiHAND/training_xyz.json")
 
         # load if exist
         K_list = json_load(k_path)
@@ -165,8 +165,8 @@ def load_db_annotation(base_path, writer=None, set_name=None):
         if writer is not None:
             writer.print_str('Loading FreiHAND eval set index ...')
         t = time.time()
-        k_path = os.path.join(base_path, '%s_K.json' % 'evaluation')
-        scale_path = os.path.join(base_path, '%s_scale.json' % 'evaluation')
+        k_path = os.path.join("/media/public_dataset2/FreiHAND/evaluation_verts.json")
+        scale_path = os.path.join("/media/public_dataset2/FreiHAND/evaluation_scale.json")
         K_list = json_load(k_path)
         scale_list = json_load(scale_path)
 
@@ -209,18 +209,18 @@ def read_img(idx, base_path, set_name, version=None):
     if set_name == 'evaluation':
         assert version == sample_version.gs, 'This the only valid choice for samples from the evaluation split.'
 
-    img_rgb_path = os.path.join(base_path, set_name, 'rgb', '%08d.jpg' % sample_version.map_id(idx, version))
+    img_rgb_path = os.path.join("/media/public_dataset2/FreiHAND", set_name, 'rgb', '%08d.jpg' % sample_version.map_id(idx, version))
     if not os.path.exists(img_rgb_path):
-        img_rgb_path = os.path.join(base_path, set_name, 'rgb2', '%08d.jpg' % idx)
+        img_rgb_path = os.path.join("/media/public_dataset2/FreiHAND", set_name, 'rgb2', '%08d.jpg' % idx)
 
     _assert_exist(img_rgb_path)
     return io.imread(img_rgb_path)
 
 
 def read_img_abs(idx, base_path, set_name):
-    img_rgb_path = os.path.join(base_path, set_name, 'rgb', '%08d.jpg' % idx)
+    img_rgb_path = os.path.join("/media/public_dataset2/FreiHAND", set_name, 'rgb', '%08d.jpg' % idx)
     if not os.path.exists(img_rgb_path):
-        img_rgb_path = os.path.join(base_path, set_name, 'rgb2', '%08d.jpg' % idx)
+        img_rgb_path = os.path.join("/media/public_dataset2/FreiHAND", set_name, 'rgb2', '%08d.jpg' % idx)
 
     _assert_exist(img_rgb_path)
     return io.imread(img_rgb_path)

@@ -33,7 +33,7 @@ class Ge(torch.utils.data.Dataset):
         self.std = torch.tensor(0.20)
         self.img_std = self.cfg.DATA.IMG_STD
         self.img_mean = self.cfg.DATA.IMG_MEAN
-        self.root = self.cfg.DATA.GE.ROOT
+        self.root = "/media/public_dataset2/Ge"
         self.size = self.cfg.DATA.SIZE
 
         mat_params = sio.loadmat(os.path.join(self.root, 'params.mat'))

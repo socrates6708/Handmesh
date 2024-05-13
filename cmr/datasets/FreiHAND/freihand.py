@@ -190,7 +190,7 @@ if __name__ == '__main__':
     args.phase = 'training'
     args.size = 224
     args.work_dir = os.path.join( os.path.dirname(os.path.realpath(__file__)), '../..' )
-    dataset = FreiHAND('../../data/FreiHAND', args.phase, args, tmp['face'], writer=None,
+    dataset = FreiHAND('/media/public_dataset2/FreiHAND', args.phase, args, tmp['face'], writer=None,
                        down_sample_list=down_transform_list, ms=args.ms_mesh)
     for i in range(len(dataset)):
         data = dataset.get_training_sample(i)

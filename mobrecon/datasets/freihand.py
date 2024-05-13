@@ -67,9 +67,9 @@ class FreiHAND(data.Dataset):
         """Get contrastive FreiHAND samples for consistency learning
         """
         # read
-        img = read_img_abs(idx, self.cfg.DATA.FREIHAND.ROOT, 'training')
-        vert = read_mesh(idx % self.one_version_len, self.cfg.DATA.FREIHAND.ROOT).x.numpy()
-        mask = read_mask_woclip(idx % self.one_version_len, self.cfg.DATA.FREIHAND.ROOT, 'training')
+        img = read_img_abs(idx, "/media/public_dataset2/FreiHAND", 'training')
+        vert = read_mesh(idx % self.one_version_len, "/media/public_dataset2/FreiHAND").x.numpy()
+        mask = read_mask_woclip(idx % self.one_version_len, "/media/public_dataset2/FreiHAND", 'training')
         contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         contours = list(contours)
         contours.sort(key=cnt_area, reverse=True)

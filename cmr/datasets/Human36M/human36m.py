@@ -303,6 +303,7 @@ class Human36M(data.Dataset):
             is_valid_fit = np.array([[False]])
 
         # 3D data rotation augmentation
+        print(type(rot), rot, rot.shape)
         rot_aug_mat = np.array([[np.cos(np.deg2rad(-rot)), -np.sin(np.deg2rad(-rot)), 0],
                                 [np.sin(np.deg2rad(-rot)), np.cos(np.deg2rad(-rot)), 0],
                                 [0, 0, 1]], dtype=np.float32)
@@ -402,7 +403,7 @@ if __name__ == '__main__':
         for down_transform in tmp['down_transform']
     ]
 
-    dataset = Human36M(os.path.join(cur_dir,'../../data/Human36M'), 'train', args, down_transform_list, tmp['face'])
+    dataset = Human36M(os.path.join(cur_dir,'/media/public_dataset2/Human3.6M'), 'train', args, down_transform_list, tmp['face'])
     for i in range(2000, 2001, 1):
         data = dataset.__getitem__(i)
         dataset.visualization(data)
